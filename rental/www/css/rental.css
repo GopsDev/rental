@@ -1,0 +1,172 @@
+/* custom.css */
+
+/* Container styles */
+.container-fluid.custom-container {
+    padding: 20px;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+/* Breadcrumb styles */
+.breadcrumb-line {
+    margin-bottom: 30px;
+}
+
+/* Card styles */
+.custom-card {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    transition: box-shadow 0.3s;
+}
+
+.custom-card:hover {
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+.custom-card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.custom-item-box {
+    height: 100%;
+}
+
+.custom-item-image {
+    display: block;
+    overflow: hidden;
+}
+
+/* Featured tag styles */
+.custom-featured-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+.custom-featured-tag-bg {
+    background-color: #ff6347;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.custom-featured-tag-txt {
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Item text styles */
+.custom-item-text {
+    padding: 20px;
+}
+
+.custom-item-name a {
+    color: #333;
+    text-decoration: none;
+}
+
+.custom-item-category {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.custom-item-rating {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.custom-rating-count {
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.custom-review {
+    color: #777;
+}
+
+/* Price and availability styles */
+.custom-card-subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+.custom-rupee {
+    font-weight: bold;
+    color: #333;
+}
+
+.custom-availability-status {
+    color: #28a745;
+}
+
+/* Button styles */
+.custom-btn-write-review,
+.custom-btn-payment {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* custom-main.css */
+
+/* Container styles */
+.custom-container-fluid {
+    padding: 20px;
+}
+
+.custom-container {
+    max-width: 1200px;
+}
+
+/* Section header styles */
+.custom-section-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Card styles */
+.custom-myorder-card {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.custom-card-header {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Order ID styles */
+.custom-order-id {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.custom-link-text {
+    color: #007bff;
+    font-size: 16px;
+}
+
+/* Button styles */
+.custom-btn-return {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .custom-myorder-card {
+        padding: 15px;
+    }
+}
+

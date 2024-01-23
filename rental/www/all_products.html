@@ -1,0 +1,62 @@
+{% extends "templates/web.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/rental.css">
+</head>
+
+<body>
+  <div class="container-fluid lb-padd mt-10">
+    <div class="container">        
+      <div class="row">
+        {% for item in items %}
+        <div class="col-xl-3 col-md-6 custom-item" id="custom-item-{{item.item_code}}">
+          <div class="custom-card custom-item-box">
+            <a href="#" class="custom-item-image mb-3 w-100">
+              <div class="custom-featured-tag">
+                <span class="custom-featured-tag-bg"><span class="custom-featured-tag-txt">New</span></span>
+              </div>
+              <div class="custom-video-bttn position-relative d-block">
+                <img src="{{item.image}}" class="img-fluid">
+              </div>
+            </a>
+            <div class="custom-item-text pt-0">
+              <a href="#"><h4 class="custom-item-name">{{item.item_name}}</h4></a>
+              <span class="custom-item-category">Tracking Id: {{item.item_code}}</span>
+              <div class="custom-item-rating">
+                <div class="custom-rating-count">Rate/hr: {{item.rental_price}}</div>
+                <div class="custom-review" style="color: brown;">{{item.condition}}</div>
+              </div>
+              <h6><span>{{item.availability_status}}</span></h6>
+            </div>
+            {% if not item.status %}
+            <button class="btn custom-btn-write-review btn-secondary" style="float: left !important; background-color: brown;"
+              data-web-item="{{ item.item_code }}" onclick="get_details()">
+              {{ _("Take Rent") }}
+            </button>
+            {% else %}
+            <button class="btn custom-btn-payment btn-secondary" style="float: left !important; color:green;"
+              data-web-item="{{ item.item_code }}" onclick="payments()">
+              {{ _("Payment") }}
+            </button>
+            {% endif %}
+          </div> 
+        </div>
+        {% endfor %}
+      </div>  
+    </div>
+  </div>
+  <script src="all_products.js"></script>
+  {{ include_script("frappe-web.bundle.js") }}
+  {{ include_script("controls.bundle.js") }}
+  {{ include_script("dialog.bundle.js") }}
+</body>
+
+</html>
+{% endblock %}

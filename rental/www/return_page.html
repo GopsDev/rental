@@ -1,0 +1,49 @@
+{% extends "templates/web.html" %}
+
+{% block content %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/rental.css">
+</head>
+<body>
+
+<section class="custom-myorder-container">
+  <div class="container-fluid custom-container">
+    <div class="container">
+      {% for retail in orders %}
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="custom-card custom-myorder-card">
+            <div class="custom-card-header">
+              <div class="custom-order-id">
+                <p><span>Rental Items </span></p>
+                <p class="custom-link-text"><span>Tracking id : {{retail.item_code}}</span></p>
+                <p>Total Hours :{{retail.total_time}}</p>  
+                <p>Price/hr :{{retail.rate}} </p>  
+                <p>Total Amount :{{retail.amount}}</p>
+              </div>
+            </div>
+            {% if not return_item %}
+            <button class="btn custom-btn-return btn-secondary" style="float: left !important;"
+                    data-web-item="{{ retail.item_code }}" onclick="return_items()">
+              {{ _("Return") }}
+            </button>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ include_script("custom-frappe-web.bundle.js") }}
+{{ include_script("custom-controls.bundle.js") }}
+{{ include_script("custom-dialog.bundle.js") }}
+
+{% endblock %}
+</body>
+</html>

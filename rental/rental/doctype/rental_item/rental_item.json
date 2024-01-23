@@ -1,0 +1,136 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:item_name",
+ "creation": "2024-01-22 22:09:31.881286",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "item_name",
+  "item_code",
+  "warranty_status",
+  "image",
+  "column_break_tze4o",
+  "rental_price",
+  "availability_status",
+  "condition",
+  "hour_rate",
+  "category",
+  "purchase_date",
+  "section_break_al2vg",
+  "description",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "item_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "item_code",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Code",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_break_al2vg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "rental_price",
+   "fieldtype": "Currency",
+   "label": "Rental Price",
+   "reqd": 1
+  },
+  {
+   "fieldname": "availability_status",
+   "fieldtype": "Select",
+   "label": "Availability Status",
+   "options": "Available\nReserved\nRented"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "label": "Category",
+   "options": "Rental Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_tze4o",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition",
+   "options": "New\nLike New\nGood\nFair\nPoor",
+   "reqd": 1
+  },
+  {
+   "fieldname": "warranty_status",
+   "fieldtype": "Select",
+   "label": "Warranty Status",
+   "options": "In Warranty\nOut of Warranty"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach",
+   "label": "Image"
+  },
+  {
+   "default": "1",
+   "fieldname": "hour_rate",
+   "fieldtype": "Int",
+   "label": "Total Hour"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "label": "status"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-23 17:45:29.125952",
+ "modified_by": "Administrator",
+ "module": "Rental",
+ "name": "Rental Item",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

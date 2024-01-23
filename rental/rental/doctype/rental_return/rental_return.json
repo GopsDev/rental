@@ -1,0 +1,98 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-23 14:19:57.290330",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "customer",
+  "return_time",
+  "additional_amount",
+  "return_items",
+  "total",
+  "rental_order_reference",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "return_items",
+   "fieldtype": "Table",
+   "label": "Return Items",
+   "options": "Rental Order Item"
+  },
+  {
+   "fieldname": "rental_order_reference",
+   "fieldtype": "Data",
+   "label": "Rental order Reference"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Rental Return",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Data",
+   "label": "customer"
+  },
+  {
+   "fieldname": "return_time",
+   "fieldtype": "Date",
+   "label": "Return Time"
+  },
+  {
+   "fieldname": "additional_amount",
+   "fieldtype": "Currency",
+   "label": "Additional Amount"
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "total"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-23 16:30:50.952943",
+ "modified_by": "Administrator",
+ "module": "Rental",
+ "name": "Rental Return",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Administrator",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
