@@ -218,3 +218,15 @@ doc_events = {
 # auth_hooks = [
 # 	"rental.auth.validate"
 # ]
+fixtures = [{
+    "dt": "Custom Field",
+    "filters": [
+		["name", "in", [
+                "Rental Order-custom_tracking_id",
+                "Rental Return-custom_status",
+                "Rental Return-custom_section_break_ccbop",
+                "Rental Return-custom_employee_check",
+                "Rental Return-custom_column_break_uv0sg"            
+        ]]
+	]
+}]
