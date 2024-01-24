@@ -1,8 +1,6 @@
-function get_details() {
+function get_details(item_name) {
     console.log("Button clicked!");
-    var button = event.target;
-    var webItem = button.getAttribute("data-web-item");
-
+    
     // First dialog to get address details
     var addressDialog = new frappe.ui.Dialog({
         title: __('New Address'),
@@ -79,11 +77,9 @@ function get_details() {
                     if (!response.exc) {
                         var address_name = response.message;
 
-                        // Close the first dialog
                         addressDialog.hide();
 
-                        // Open the second dialog
-                        openDetailsDialog(webItem, address_name);
+                        openDetailsDialog(item_name, address_name);
                     } else {
                         frappe.msgprint({
                             message: __("Error saving address: ") + response.exc,
@@ -99,7 +95,7 @@ function get_details() {
     addressDialog.show();
 }
 
-function openDetailsDialog(webItem, address_name) {
+function openDetailsDialog(item_name, address_name) {
     // Second dialog to get details
     var detailsDialog = new frappe.ui.Dialog({
         title: __("Take Rent"),
@@ -113,7 +109,7 @@ function openDetailsDialog(webItem, address_name) {
             frappe.call({
                 method: "rental.www.all_products.create_rentalorder",
                 args: {
-                    web_item: webItem,
+                    web_item: item_name,
                     total_hour: data.total_hour,
                     return_date: data.return_date,
                     location: address_name.name
@@ -139,9 +135,12 @@ function openDetailsDialog(webItem, address_name) {
     detailsDialog.show();
 }
 
-function payments(){
+function payments(item_name){
     frappe.call({
         method: "rental.www.all_products.payment",
+        args:{
+          'code':item_name
+        },
         callback: function(r) {
                 window.location.href = '/return_page'               
             }

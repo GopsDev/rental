@@ -8,23 +8,22 @@ def get_context(context):
 
 @frappe.whitelist()
 def create_rentalorder(web_item,total_hour,return_date, location):
-
+    print('hjk',web_item,total_hour,return_date, location)
     customer = create_customer()
     create_order = frappe.new_doc('Rental Order')
     create_order.customer = customer
     create_order.valid_till = return_date
-    create_order.shipping_address = location
+    create_order.location = location
     item1 = create_order.append('items', {})
     item1.item_code = web_item
     item1.qty = 1
     item1.total_time = total_hour
-    item1.rate = frappe.db.get_value('Rental Item',{'item_code':web_item},['rental_price'])
+    item1.rate = frappe.db.get_value('Rental Item',{'item_name':web_item},['rental_price'])
     item1.amount = int(total_hour) * int(item1.rate)
     create_order.total = item1.amount
     item1.parent = create_order.name
-    existing_rental_item = frappe.get_doc('Rental Item', {'item_code': web_item})
-
-    frappe.db.set_value('Rental Item', existing_rental_item.name, 'status', 0)
+    existing_rental_item = frappe.get_doc('Rental Item', {'name': web_item})
+    frappe.db.set_value('Rental Item', existing_rental_item.name, 'availability_status', 'Reserved')
     create_order.insert()
 
 def create_customer():
@@ -40,11 +39,15 @@ def create_customer():
         return customer.name
 
 @frappe.whitelist()
-def payment():
+def payment(code):
     rental_order = frappe.get_all('Rental Order', filters={'customer': frappe.session.user}, limit=1)
 
     if rental_order:
         frappe.get_doc('Rental Order', rental_order[0].name).submit()
+        existing_rental_item = frappe.get_doc('Rental Item', {'item_name': code})
+
+        frappe.db.set_value('Rental Item', existing_rental_item.name, 'availability_status', 'Rented')
+
         return 'success'
 
 
