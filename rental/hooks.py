@@ -125,7 +125,7 @@ app_license = "me"
 # }
 doc_events = {
 	"Rental Return": {
-		"after_save": "rental.rental.doctype.rental_return.rental_returm.sendmail",
+		"after_save": "rental.rental.doctype.rental_return.rental_return.sendmail",
 	}
 }
 
