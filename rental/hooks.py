@@ -123,6 +123,11 @@ app_license = "me"
 # 		"on_trash": "method"
 # 	}
 # }
+doc_events = {
+	"Rental Return": {
+		"after_save": "rental.rental.doctype.rental_return.rental_returm.sendmail",
+	}
+}
 
 # Scheduled Tasks
 # ---------------

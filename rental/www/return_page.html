@@ -31,6 +31,10 @@
                     data-web-item="{{ retail.item_code }}" onclick="return_items()">
               {{ _("Return") }}
             </button>
+            {% else %}
+              <p>{{return_item[0].custom_employee_check}} Assigned For Condition Enquiry
+                ! You will get confirmation mail soon
+              </p>
             {% endif %}
           </div>
         </div>

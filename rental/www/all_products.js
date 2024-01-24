@@ -3,7 +3,7 @@ function get_details(item_name) {
     
     // First dialog to get address details
     var addressDialog = new frappe.ui.Dialog({
-        title: __('New Address'),
+        title: __('Shipping Address'),
         wrapper_class: 'dialog-scroll',
         fields: [
             {
